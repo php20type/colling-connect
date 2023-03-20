@@ -9,6 +9,7 @@ use App\Models\MoverAddress;
 use App\Models\PostalAddress;
 use App\Models\Connection;
 use Auth;
+use Mail;
 
 class ConnectionController extends Controller
 {
@@ -115,16 +116,28 @@ class ConnectionController extends Controller
                 ]);
             }
         }    
-
+        $application_id = random_int(10000000, 99999999);
         $mover_addresses  =   Connection::create([
             'mover_id'              =>  $mover->id,
+            'application_id'        =>  $application_id,
             'mover_status'          =>  $request->mover_status,
             'moving_date'           =>  $request->moving_date,
             'lease_length'          =>  $request->lease_length
             // 'services'              =>  $request->services,
         ]);
 
-        return view('pages/thnkyoupage/connection-create');
+        if ($mover) {
+            $app_from_address   = Config('mail.from.address');
+            $app_from_name      = Config('mail.from.name');
+            $subject            = 'Sortlisted';
+            $data['name'] = $mover->first_name;
+            $data['application_id'] = $application_id;
+            Mail::send('mail.select', $data, function ($message) use ($mover , $app_from_address,$app_from_name,$subject) {
+                $message->to($mover->email, $mover->first_name)->subject($subject);
+                $message->from($app_from_address, $app_from_name);
+            });
+        }
+        return view('pages/thnkyoupage/connection-create',compact('application_id'));
     }
 
     /**
@@ -170,5 +183,10 @@ class ConnectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getConnectionTracker(){
+        $connection = Connection::all();
+        return view('pages/connection-tracker',compact('connection'));
     }
 }

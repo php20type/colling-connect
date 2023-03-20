@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mover extends Model
 {
     use HasFactory;
-
+    public $table = 'movers';
     protected $fillable = [ 
         'first_name',
         'last_name',
@@ -20,4 +20,9 @@ class Mover extends Model
         'created_by',
         'company_id'
     ];
+
+    // public function Connection()
+    // {
+    //     return $this->belongsToMany(Connection::class);
+    // }
 }

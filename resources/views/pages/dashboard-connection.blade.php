@@ -27,7 +27,7 @@
                         <a href="{{ route('connection.index') }}" class="active"><span>Create A Connection</span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><span>Connection Tracker</span></a>
+                        <a href="{{ route('connection.connection-tracker') }}"><span>Connection Tracker</span></a>
                     </li>
                     <li>
                         <a href="javascript:void(0)"><span>FAQ's</span></a>

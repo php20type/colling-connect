@@ -23,4 +23,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('connection')->name('connection.')->group(function(){
     Route::get('/', [ConnectionController::class, 'index'])->name('index');
     Route::post('/store', [ConnectionController::class, 'store'])->name('store');
+    Route::get('/connection-tracker', [ConnectionController::class, 'getConnectionTracker'])->name('connection-tracker');
 });
