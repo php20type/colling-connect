@@ -17,15 +17,8 @@ class Connection extends Model
         'lease_length',
         'services'
     ];
-
-    // public function Mover()
-    // {
-    //     return $this->belongsToMany(Mover::class);
-    // }
-
-    // public function connection()
-    // {
-    //     return $this->hasMany(Connection::class);
-    // }
-
+    public function movers()
+    {
+           return $this->hasMany(Mover::class,'id','mover_id');
+    }
 }

@@ -406,19 +406,19 @@
                                             <div class="form-row row">
                                                 <div class="form-col col-md-6 col-lg-6">
                                                     <div class="form-field checkbox-field">
-                                                        <input type="checkbox" name="services[]">
+                                                        <input type="checkbox" name="services[]" value="1">
                                                         <label>Electricity</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-col col-md-6 col-lg-6">
                                                     <div class="form-field checkbox-field">
-                                                        <input type="checkbox" name="services[]">
+                                                        <input type="checkbox" name="services[]" value="2">
                                                         <label>Gas</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-col col-md-6 col-lg-6">
                                                     <div class="form-field checkbox-field">
-                                                        <input type="checkbox" name="services[]">
+                                                        <input type="checkbox" name="services[]" value="3">
                                                         <label>Phone & Internet Connections</label>
                                                     </div>
                                                 </div>
@@ -448,7 +448,7 @@
                                                 </div> -->
                                                 <div class="form-col col-md-6 col-lg-6">
                                                     <div class="form-field checkbox-field">
-                                                        <input type="checkbox" name="services[]">
+                                                        <input type="checkbox" name="services[]" value="4">
                                                         <label>Water</label>
                                                     </div>
                                                 </div>

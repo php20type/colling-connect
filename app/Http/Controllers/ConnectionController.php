@@ -41,15 +41,15 @@ class ConnectionController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'mobile' =>'required',
-        //     'email' =>'required',
-        //     'resume'=>'required',
-        //     'country'=>'required',
-        //     'experience'=>'required',
-        //     'profile'=>'required'
-        // ]);
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' =>'required',
+            'mobile_number' =>'required',
+            'street_no'=>'required',
+            'street_name'=>'required',
+            'suburb'=>'required',
+            'mover_status'=>'required'
+        ]);
 
         $Company  =   Company::create([
             'company_name'  =>  $request->company_name,
@@ -117,13 +117,20 @@ class ConnectionController extends Controller
             }
         }    
         $application_id = random_int(10000000, 99999999);
+        
+        $services =  $output = implode(', ', array_map(
+            function ($v, $k) { return sprintf("%s='%s'", $k, $v); },
+            $request->services,
+            array_keys($request->services)
+        ));
+
         $mover_addresses  =   Connection::create([
             'mover_id'              =>  $mover->id,
             'application_id'        =>  $application_id,
             'mover_status'          =>  $request->mover_status,
             'moving_date'           =>  $request->moving_date,
-            'lease_length'          =>  $request->lease_length
-            // 'services'              =>  $request->services,
+            'lease_length'          =>  $request->lease_length,
+            'services'              =>  implode("," , $request->services),
         ]);
 
         if ($mover) {
@@ -185,8 +192,13 @@ class ConnectionController extends Controller
         //
     }
 
-    public function getConnectionTracker(){
-        $connection = Connection::all();
-        return view('pages/connection-tracker',compact('connection'));
+    public function getConnectionTracker(Request $request){
+        // if($request != 'null'){
+            // dd($request);
+        // }
+
+        $connections = Connection::all();
+        // dd( $connections);
+        return view('pages/connection-tracker',compact('connections'));
     }
 }

@@ -30,7 +30,7 @@
     <section class="tracker-search-main-sec">
         <div class="container">
             <div class="tracker-search-inner">
-                <form class="tracker-search-form">
+                <form class="tracker-search-form" action="{{ route('connection.connection-tracker') }}" method="get">
                     <h3>Find a connection using <span>any</span> of the options below:</h3>
                     <div class="tracker-search-form-block">
                         <div class="form-row row">
@@ -103,16 +103,16 @@
                     </div>
                 </div>
             </div>
-            @foreach ($connection as $item)
+            @foreach ($connections as $connection)
                 <div class="tracker-accordion-area">
                     <div class="tracker-accord-item">
                         <div class="tracker-accord-head">
                             <div class="container">
                                 <div class="row tracker-accord-head-inner">
                                     <div class="col-md-6 tracker-accord-head-left">
-                                        <span>{{ $item->application_id }} Submitted by: {{ $item->Mover }}</span>
-                                        <h3>Lee Hilton</h3>
-                                        <p>Unit 301301 30  Paper Trl, ALPHINGTON VIC 3078</p>
+                                        <span>{{ $connection->application_id }} Submitted by: {{ $connection->movers[0]['first_name'] }}</span>
+                                        <h3>{{ $connection->movers[0]['first_name'] }} {{ $connection->movers[0]['last_name'] }}</h3>
+                                        <p>{{ $connection->movers[0]['address'] }}</p>
                                     </div>
                                     <div class="col-md-6 tracker-accord-head-right">
                                         <h3>Connection status <span class="in-progress">In Progress</span></h3>
@@ -129,17 +129,27 @@
                                             <h3>Applicant Details</h3>
                                             <ul>
                                                 <li>
-                                                    <p><span>Applicant ID:</span> 792971</p>
+                                                    <p><span>Applicant ID:</span> {{ $connection->application_id }}</p>
                                                 </li>
                                                 <li>
-                                                    <p><span>Application Creation Date:</span> 23/01/23</p>
+                                                    <p><span>Application Creation Date:</span> {{  \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $connection->created_at)->format('d M Y')}}</p>
                                                 </li>
                                                 <li>
                                                     <p><span>Move To Address:</span> Unit 301301 30 Paper Trl, ALPHINGTON VIC 3078</p>
                                                 </li>
                                                 <li>
                                                     <p><span>List of Services:</span></p>
-                                                    <p>Water Connection (Starts on 23.01.23)</p>
+                                                    @foreach (explode(",",$connection->services) as $service)
+                                                        @if($service == 1)
+                                                            <p>Electricity Connection(Starts on 23.01.23)</p>
+                                                        @elseif($service == 2)
+                                                            <p>Gas Connection (Starts on 23.01.23)</p>
+                                                        @elseif($service == 3)
+                                                            <p>Phone & Internet Connections (Starts on 23.01.23)</p>
+                                                        @else
+                                                            <p>Water Connection (Starts on 23.01.23)</p>
+                                                        @endif
+                                                    @endforeach
                                                 </li>
                                                 <li>
                                                     <p><span>Submitted By:</span> Jake Peters</p>
