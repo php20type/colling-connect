@@ -3,6 +3,16 @@
 ])
 @section('content')
 <div id="main">
+    <section class="connection-tracker-banner-sec">
+        <div class="container">
+            <div class="connection-tracker-banner-inner">
+                <div class="connection-tracker-banner-content">
+                    <span>Hello {{ Auth::user()->first_name }} , welcome back!</span>
+                    <h2>My Account</h2>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="dashboard-menu-main-sec">
         <div class="dashboard-menu-inner">
             <div class="dashboard-menu">

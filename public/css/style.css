@@ -627,8 +627,27 @@ section.custom-banner-sec .container {
 
 /* Account Login Title Sec CSS Start */
 section.account-login-title-sec {
+    background: #F4F4F4;
     padding: 60px 0px;
-    min-height: 320px;
+    height: 320px;
+    position: relative;
+}
+.account-login-title h4 {
+    font-family: "Avenir Next LT Pro", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 24px;
+    color: var(--turquoise);
+    margin: 0px 0px 6px;
+}
+.account-login-title h2 {
+    font-family: "Avenir Next LT Pro", Sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 70px;
+    text-transform: uppercase;
+    color: #000000;
 }
 /* Account Login Title Sec CSS End */
 
@@ -1063,12 +1082,49 @@ section.real-value-main-sec {
 /* Dashboard Page CSS Start ======= */
 
 /* Dashboard Banner Sec CSS Start */
+
+
 section.dashboard-banner-sec {
-    min-height: 320px;
+    position: relative;
+    background: #edeeee;
 }
-section.dashboard-banner-sec .custom-banner-bgimg img {
-    object-position: center center;
+.dashboard-banner-inner {
+    max-width: 1600px;
+    width: 100%;
+    height: 320px;
+    margin: 0px auto;
+    position: relative;
 }
+.dashboard-banner-img {
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+}
+.dashboard-banner-img img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.dashboard-banner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 60px 0px 0px;
+}
+.dashboard-banner-content h2 {
+    font-family: "Avenir Next LT Pro", Sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    color: var(--black);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
 /* Dashboard Banner Sec CSS End */
 
 /* Dashboard Menu Sec CSS Start */
@@ -1250,9 +1306,39 @@ section.custom-cta-main-sec {
 /* Dashboard/Create A Connection Page CSS Start ======= */
 
 /* Create Connection Sec CSS Start */
-section.create-connection-banner-sec {
-    padding: 60px 0px 40px;
-    min-height: 230px;
+section.create-connection-banner-sec {	
+    background: #edeeee;	
+    position: relative;	
+    padding: 60px 0px 40px;	
+    min-height: 230px;	
+}	
+.create-connection-banner-content span {	
+    font-family: "Avenir Next LT Pro", Sans-serif;	
+    font-size: 24px;	
+    font-weight: 700;	
+    line-height: 24px;	
+    font-style: italic;	
+    color: var(--turquoise);	
+    text-transform: uppercase;	
+    display: block;	
+    margin: 0px 0px 6px;	
+}	
+.create-connection-banner-content h2 {	
+    font-family: "Avenir Next LT Pro", Sans-serif;	
+    font-size: 36px;	
+    font-weight: 700;	
+    line-height: 36px;	
+    text-transform: uppercase;	
+    color: var(--black);	
+    margin: 0px 0px 10px;	
+}	
+.create-connection-banner-content p {	
+    font-family: "Avenir Next LT Pro", Sans-serif;	
+    font-size: 18px;	
+    font-weight: 400;	
+    line-height: 22px;	
+    color: var(--black);	
+    margin-bottom: 18px;	
 }
 /* Create Connection Sec CSS End */
 
@@ -1551,8 +1637,29 @@ form.create-connection-form .connection-terms-submit-form-area .checkbox-field l
 
 /* Connection Tracker Banner Sec CSS Start */
 section.connection-tracker-banner-sec {
-    min-height: 150px;
+    background: #edeeee;
+    position: relative;
     padding: 60px 0px 10px;
+}
+.connection-tracker-banner-content span {
+    font-family: "Avenir Next LT Pro", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    font-style: italic;
+    color: var(--turquoise);
+    text-transform: uppercase;
+    display: block;
+    margin: 0px 0px 6px;
+}
+.connection-tracker-banner-content h2 {
+    font-family: "Avenir Next LT Pro", Sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-transform: uppercase;
+    color: var(--black);
+    margin: 0px 0px 10px;
 }
 /* Connection Tracker Banner Sec CSS End */
 

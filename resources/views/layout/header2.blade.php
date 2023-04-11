@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="header-logo-col">
                         <div class="header-logo-area">
-                            <a href="index.html">
+                            <a href="{{ route('home') }}">
                                 <img src="{{ asset('images/logo-main.png') }}">
                             </a>
                         </div>
@@ -19,10 +19,10 @@
                                 <a href="javascript:void(0)">Link Your Software</a>
                             </div>
                             <div class="header-btn">
-                                <a href="javascript:void(0)">create A Connection</a>
+                                <a href="{{ route('connection.index') }}">create A Connection</a>
                             </div>
                             <div class="header-btn">
-                                <a href="javascript:void(0)">my Dashboard</a>
+                                <a href="{{ route('home') }}">my Dashboard</a>
                             </div>
                             <div class="header-btn header-menu-btn">
                                 <a href="javascript:void(0)">
